@@ -88,6 +88,9 @@ public class InitDatabaseConfig {
             orderRepository.save(order1);
             System.out.println("==ORDEN GUARDADA==");
             System.out.println(order1);
+            System.out.println("El total de la orden es: "+order1.getTotal());
+            System.out.println("Subtotales: ");
+            order1.getDetails().forEach(detail-> System.out.println("\t ->"+detail.getSubtotal()));
         };
     }
 }

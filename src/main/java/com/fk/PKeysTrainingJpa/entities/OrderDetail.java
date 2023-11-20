@@ -29,4 +29,10 @@ public class OrderDetail implements Serializable {
     @ToString.Exclude
    private Order order;
 
+    public BigDecimal getSubtotal() {
+        if (unitPrice==null) return BigDecimal.ZERO;
+
+        return unitPrice.multiply(BigDecimal.valueOf(quantity));
+    }
+
 }
