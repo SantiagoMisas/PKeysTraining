@@ -15,12 +15,18 @@ import java.math.BigDecimal;
 @Builder
 public class OrderDetail implements Serializable {
 
-    @Column (name="order_id")
-    private long orderId;
-    @Column (name="product_id")
-    private long productId;
+    @EmbeddedId
+    private OrderDetailPK id;
+
     private int quantity;
+
     @Column (name="unit_price")
     private BigDecimal unitPrice;
+
+    @ManyToOne
+    @JoinColumn (name="order_id", insertable=false, updatable = false)
+    @MapsId("orderId")
+    @ToString.Exclude
+   private Order order;
 
 }

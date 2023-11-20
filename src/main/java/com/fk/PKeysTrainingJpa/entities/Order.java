@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name="order")
+@Table(name="\"order\"")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,7 +20,7 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "creation_date")
+    @Column(name = "creation_date", insertable = true, updatable = false)
     @CreationTimestamp
     private LocalDateTime creationDate =LocalDateTime.now();
 
@@ -31,7 +31,7 @@ public class Order implements Serializable {
     List<OrderDetail> details;
 
     public static enum OrderStatus {
-        PENDING, IN_PROCESS, COMPLETED, CANCELLED;
+        PENDING, IN_PROCESS, COMPLETED, CANCELLED
     }
 
 

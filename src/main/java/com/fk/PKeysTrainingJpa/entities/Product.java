@@ -18,9 +18,13 @@ public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String name;
+
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
+
+
 
 
 }
